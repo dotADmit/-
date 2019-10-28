@@ -12,24 +12,40 @@ namespace BankApp
         {
             User petrov = new User("Petrov", 35, Gender.Male);
 
+
+            Account petrovAccount = new Account(petrov, 300100);
+            petrovAccount.AddMoney(50000, "пополнение счета");
+            petrovAccount.WithrawMoney(15000, "снятие части");
+
+           List<Transaction> petrovTrans = petrovAccount.GetTransactionHistory();
+
+
+            //User segeeva = new User("Sergeev", 28, Gender.Male);
+            Account sergeevaAccount = new Account(new User("Sergeeva", 28, Gender.Female), 1001);
+            sergeevaAccount.AddMoney(15000, "пополнение депозита");
+            sergeevaAccount.WithrawMoney(5000, "снятие средств");
+            List<Transaction> sergeevaTrans = sergeevaAccount.GetTransactionHistory();
+
+
+
+
+
+
+
             Bank sberbank = new Bank("Сбер");
 
-            Account ivanov = new Account(petrov, 300100);
-            ivanov.AddMoney(50000, "пополнение счета");
-            ivanov.WithrawMoney(15000, "снятие части");
+            sberbank.AddAccount(petrovAccount);
+            sberbank.AddAccount(sergeevaAccount);
 
-           List<Transaction> lkjlj = ivanov.GetTransactionHistory();
-
-            sberbank.AddAccount(ivanov);
-
+            sberbank.AddMoney(1001, 7777, "addInPart");
 
             //sberbank.AddAccount();
+            sberbank.PrintTransactionLog(300100);
 
 
 
             sberbank.PrintAccounts();
 
-            sberbank.PrintTransactionLog(12345678);
         }
     }
 }
