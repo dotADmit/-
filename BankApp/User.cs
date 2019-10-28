@@ -8,7 +8,7 @@ namespace BankApp
 {
     class User
     {
-        private string _fullName;
+        string _fullName;
         private int _age;
         private Gender _gender;
 
@@ -17,6 +17,10 @@ namespace BankApp
             _fullName = fullName;
             _age = age;
             _gender = gender;
+        }
+        public string GetUserName()
+        {
+            return _fullName;
         }
     }
 }

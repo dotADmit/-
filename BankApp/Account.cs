@@ -8,7 +8,7 @@ namespace BankApp
 {
     class Account
     {
-        private User _user;
+        public readonly User _user;
         public readonly int AccountNumber;
         private decimal _balance;
         private List<Transaction> _transactionLog;

@@ -53,9 +53,11 @@ namespace BankApp
             {
                 if (item.AccountNumber == accountNumber)
                 {
-                    string accountTitle = $"|| Номер счета: {item.AccountNumber} ||";
+                    string accountTitle = $"|| История операций счета: {item.AccountNumber} ||";
                     string lineIitle = new string('=', accountTitle.Length);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine($"{lineIitle}\n{accountTitle}\n{lineIitle}");
+                    Console.ResetColor();
 
                     string accountInfoTitle = $"| {"Операция",20} | {"Сумма",15} | {"Описание операции",40} |";
                     string line = new string('-', accountInfoTitle.Length);
@@ -72,7 +74,21 @@ namespace BankApp
 
         public void PrintAccounts()
         {
+            string accountTitle = $"|| Список доступных счетов: {Name} ||";
+            string lineIitle = new string('=', accountTitle.Length);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{lineIitle}\n{accountTitle}\n{lineIitle}");
+            Console.ResetColor();
 
+            string accountInfoTitle = $"| {"Номер счета",20} | {"ФИО",40} |";
+            string line = new string('-', accountInfoTitle.Length);
+            Console.WriteLine($"{line}\n{accountInfoTitle}\n{line}");
+
+
+            foreach (Account item in _accounts)
+            {
+                Console.WriteLine($"| {item.AccountNumber, 20} | {item._user.GetUserName(), 40} |\n{line}");
+            }
         }
     }
 }

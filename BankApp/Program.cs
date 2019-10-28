@@ -32,7 +32,7 @@ namespace BankApp
 
 
 
-            Bank sberbank = new Bank("Сбер");
+            Bank sberbank = new Bank("Сбербанк");
 
             sberbank.AddAccount(petrovAccount);
             sberbank.AddAccount(sergeevaAccount);
@@ -40,11 +40,15 @@ namespace BankApp
             sberbank.AddMoney(1001, 7777, "addInPart");
 
             //sberbank.AddAccount();
-            sberbank.PrintTransactionLog(300100);
-
-
-
             sberbank.PrintAccounts();
+            Console.WriteLine();
+            sberbank.PrintTransactionLog(300100);
+            sberbank.PrintTransactionLog(1001);
+
+
+
+
+            Console.ReadKey();
 
         }
     }
